@@ -45,7 +45,7 @@ public class DedupRestController {
 				&& !paramOrdering.trim().equals("dsc")) {
 			respBody = new ResponseEntity<>(new DedupRestResponseVO("'ord' parameter must be 'asc' or 'dsc'"),
 					HttpStatus.BAD_REQUEST);
-		} else if (paramOrdering.equals("dsc")) {
+		} else if (paramOrdering.trim().equals("dsc")) {
 			resp = new DedupRestResponseVO(StringUtils.dedup(paramValue, StringOrder.DESCENDING));
 			respBody = new ResponseEntity<>(resp, HttpStatus.OK);
 		} else {
